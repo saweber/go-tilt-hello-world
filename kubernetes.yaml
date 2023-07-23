@@ -18,3 +18,4 @@ spec:
           image: example-go-image
           ports:
             - containerPort: 8000
+            - containerPort: 40000

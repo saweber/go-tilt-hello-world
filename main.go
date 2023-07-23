@@ -17,5 +17,6 @@ func handleRequests() {
 }
 
 func main() {
+	fmt.Println("application started")
 	handleRequests()
 }
