@@ -1,0 +1,15 @@
+{{/*apiVersion: v1*/}}
+{{/*kind: Pod*/}}
+{{/*metadata:*/}}
+{{/*  name: "{{ include "helm-tilt-local.fullname" . }}-test-connection"*/}}
+{{/*  labels:*/}}
+{{/*    {{- include "helm-tilt-local.labels" . | nindent 4 }}*/}}
+{{/*  annotations:*/}}
+{{/*    "helm.sh/hook": test*/}}
+{{/*spec:*/}}
+{{/*  containers:*/}}
+{{/*    - name: wget*/}}
+{{/*      image: example-go*/}}
+{{/*      command: ['wget']*/}}
+{{/*      args: ['{{ include "helm-tilt-local.fullname" . }}:{{ .Values.service.port }}00']*/}}
+{{/*  restartPolicy: Never*/}}

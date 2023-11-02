@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "helm-tilt-local.fullname" . }}
+  labels:
+    {{- include "helm-tilt-local.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: {{ .Values.service.debug }}
+      targetPort: http
+      protocol: TCP
+      name: debug
+  selector:
+    {{- include "helm-tilt-local.selectorLabels" . | nindent 4 }}

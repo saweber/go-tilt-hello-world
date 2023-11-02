@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func baseRoute(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World!")
+	fmt.Fprintf(w, greeting)
 	fmt.Println("Endpoint Hit: homePage")
 }
 
@@ -16,7 +17,13 @@ func handleRequests() {
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
 
+var greeting string
+
 func main() {
+	greeting = os.Getenv("GREETING")
+	if greeting == "" {
+		greeting = "?"
+	}
 	fmt.Println("application started")
 	handleRequests()
 }

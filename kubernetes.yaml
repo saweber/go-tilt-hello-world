@@ -19,3 +19,6 @@ spec:
           ports:
             - containerPort: 8000
             - containerPort: 40000
+          env:
+            - name: "GREETING"
+              value: "Hello World! from kubernetes.yaml"
